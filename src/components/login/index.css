@@ -1,5 +1,18 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.login-wrapper {
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.card {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
