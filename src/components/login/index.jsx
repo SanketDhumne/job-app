@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import './index.css';
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    const token = Cookies.get("myToken");
+
+    if( token !== undefined){
+      navigate("/");
+    }
+  }, [navigate]);
+
   const [allValues, setValues] = useState({
     username: '',
     password: '',
     errorMsg: '',
   });
 
-  const navigate = useNavigate();
 
   const onSubmitData = async (event) => {
     event.preventDefault();
@@ -32,6 +43,7 @@ const Login = () => {
 
       if (response.ok) {
         setValues({ ...allValues, errorMsg: '' });
+        Cookies.set("myToken", data.jwt_token);
         navigate('/');
       } else {
         setValues({ ...allValues, errorMsg: data.error_msg });
