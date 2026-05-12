@@ -1,24 +1,16 @@
-.notfound-wrapper {
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
-}
-
 .notfound-code {
   font-size: 7rem;
   font-weight: 900;
-  color: #2563eb;
   margin-bottom: 8px;
 }
 
 .notfound-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
 }
 
 .notfound-description {
   margin-top: 12px;
-  font-size: 1.1rem;
-  color: #475569;
   line-height: 1.6;
 }
 

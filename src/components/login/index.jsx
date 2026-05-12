@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Navbar from '../navbar';
 import './index.css';
 
 const Login = () => {
@@ -55,44 +56,47 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper container-fluid">
-      <div className="row min-vh-100 align-items-center justify-content-center">
-        <div className="col-12 col-sm-10 col-md-6 col-lg-4">
-          <div className="card shadow-lg border-0 rounded-4">
-            <div className="card-body p-4 p-md-5">
-              <h2 className="text-center mb-4 text-primary fw-bold">
-                Login
+    <>
+      <Navbar hideLinks={true} />
+      <div className="login-wrapper container-fluid">
+        <div className="row justify-content-center" style={{ minHeight: '80vh', alignItems: 'center' }}>
+          <div className="col-12 col-sm-10 col-md-6 col-lg-4">
+            <div className="glass-card p-4 p-md-5">
+              <h2 className="text-center mb-4 fw-bold" style={{ color: 'var(--primary-color)' }}>
+                Welcome Back
               </h2>
 
               <form onSubmit={onSubmitData}>
-                <div className="mb-3">
+                <div className="mb-4">
                   <label
                     htmlFor="exampleInputEmail1"
-                    className="form-label fw-semibold"
+                    className="form-label fw-semibold text-dynamic"
                   >
                     Username
                   </label>
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg premium-input"
                     id="exampleInputEmail1"
+                    placeholder="Enter your username"
                     onChange={(e) => {
                       setValues({ ...allValues, username: e.target.value });
                     }}
                   />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-4">
                   <label
                     htmlFor="exampleInputPassword1"
-                    className="form-label fw-semibold"
+                    className="form-label fw-semibold text-dynamic"
                   >
                     Password
                   </label>
                   <input
                     type="password"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg premium-input"
                     id="exampleInputPassword1"
+                    placeholder="Enter your password"
                     onChange={(e) => {
                       setValues({ ...allValues, password: e.target.value });
                     }}
@@ -101,13 +105,13 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="btn btn-primary btn-lg w-100 mt-3"
+                  className="btn btn-premium btn-lg w-100 mt-2"
                 >
                   Sign In
                 </button>
 
                 {allValues.errorMsg && (
-                  <div className="alert alert-danger text-center py-2 mt-3 mb-0">
+                  <div className="alert alert-danger text-center py-2 mt-4 mb-0 border-0 shadow-sm rounded-3">
                     {allValues.errorMsg}
                   </div>
                 )}
@@ -116,7 +120,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
